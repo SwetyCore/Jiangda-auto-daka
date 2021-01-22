@@ -6,7 +6,7 @@
 
 要求:携带有效的`cookie:_csrf-cloud=***********; cloud_sessionID=**************`
 
-由于cookie的有效时间很短,因此建议直接模拟登陆,过程详见我github上的登录项目
+由于cookie的有效时间很短,因此建议直接模拟登陆,过程详见我github上的登录项目  
 [戳我传送](https://github.com/SwetyCore/Jiangda-Portal-Automatic-Login)
 #### post表单内容(这里是转换后的json格式):
 ```
@@ -44,9 +44,9 @@
 ```
 
 ## 提交示例
-只修改了提交表单的体温部分
-详见mainSes.py(阿里云ocr的key依然需要申请嗷)
-使用时请预先准备好带有以前登录表单的**data.json** 文件!!! (文末)
+只修改了提交表单的体温部分  
+详见[mainSes.py](阿里云ocr的key依然需要申请嗷)  
+使用时请预先准备好带有以前登录表单的**data.json** 文件!!! (文末)  
 学校用的是[SSO单点登录—CAS统一身份认证]
 
 > CAS三个重要术语：TGT（Ticket Granting Ticket）、TGC（Ticket Granting Cookie）和ST（Service Ticket）。  

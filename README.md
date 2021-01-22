@@ -56,22 +56,22 @@
 >> 作者：郝小发的生活
 >> 来源：简书
 
-具体的认证原理见我Baidu出来的结果:[统一身份认证（CAS）的工作流程](https://www.jianshu.com/p/35ba532780ec?from=timeline)
-由于偷了小懒,所以我没在py文件里面写太多的注释,下面进行简单的过程解释:
-利用模拟登陆获取登录后的session,取得TGT
-注意:此时的cookie里面并没有需要的cookie,不能直接访问打卡网址
-先修改请求头的host为yun.ujs.edu.cn
-初次访问打卡网址,直接提交目的是获取ST
+具体的认证原理见我Baidu出来的结果:[统一身份认证（CAS）的工作流程](https://www.jianshu.com/p/35ba532780ec?from=timeline)  
+由于偷了小懒,所以我没在py文件里面写太多的注释,下面进行简单的过程解释:  
+利用模拟登陆获取登录后的session,取得TGT  
+注意:此时的cookie里面并没有需要的cookie,不能直接访问打卡网址  
+先修改请求头的host为yun.ujs.edu.cn  
+初次访问打卡网址,直接提交目的是获取ST  
 会被三次重定向
 ```[2021-01-22 13:51:06]重定向链接:index
 [2021-01-22 13:51:06]重定向链接:https://pass.ujs.edu.cn/cas/login?service=http%3A%2F%2Fyun.ujs.edu.cn%2Fxxhgl%2Fyqsb%2Findex
 [2021-01-22 13:51:06]重定向链接:http://yun.ujs.edu.cn/xxhgl/yqsb/index?ticket=ST-534244-UeFZPT4bAdgezafbaf3234234706-nIQs-cas
 ```
-其中的第三次重定向的连接中的ticket=ST***************-cas就是ST
+其中的第三次重定向的连接中的ticket=ST***************-cas就是ST  
 之后就可以对目标网址进行post提交打卡表单了!!!
 
 ## data.json解读
-其实就是吧以前登录时候提交的表单复制粘贴下来,写成json格式并且储存在data.json里面了
+其实就是吧以前登录时候提交的表单复制粘贴下来,写成json格式并且储存在data.json里面了  
 如果不想手动写就把表单复制并且赋值给下面程序的变量c,运行之后复制输出粘贴到data.json里面即可
 **使用示例:**
 ```

@@ -68,7 +68,9 @@
 [2021-01-22 13:51:06]重定向链接:http://yun.ujs.edu.cn/xxhgl/yqsb/index?ticket=ST-534244-UeFZPT4bAdgezafbaf3234234706-nIQs-cas
 ```
 其中的第三次重定向的连接中的ticket=ST***************-cas就是ST  
-之后就可以对目标网址进行post提交打卡表单了!!!
+之后就可以对目标网址进行post提交打卡表单了!!!  
+
+别忘了修改mailsender.py里的邮箱账户和密码哟!!!
 
 ## data.json解读
 其实就是吧以前登录时候提交的表单复制粘贴下来,写成json格式并且储存在data.json里面了  

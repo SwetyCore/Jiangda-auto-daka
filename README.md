@@ -49,10 +49,10 @@
 使用时请预先准备好带有以前登录表单的**data.json** 文件!!! (文末)
 学校用的是[SSO单点登录—CAS统一身份认证]
 
-> CAS三个重要术语：TGT（Ticket Granting Ticket）、TGC（Ticket Granting Cookie）和ST（Service Ticket）。
->> TGT为用户登录后生成的票根，包含用户的认证身份、有效期等，存储于CAS Server中，类似于服务器会话。
->> TGC存储于cookie中，类似于会话ID，用户与CAS Server交互时，帮助用户查找相应的TGT。
->> ST为CAS Server签发的一张一次性票据，CAS Client使用ST与CAS Server进行交互，获取用户的验证状态。
+> CAS三个重要术语：TGT（Ticket Granting Ticket）、TGC（Ticket Granting Cookie）和ST（Service Ticket）。  
+>> TGT为用户登录后生成的票根，包含用户的认证身份、有效期等，存储于CAS Server中，类似于服务器会话。  
+>> TGC存储于cookie中，类似于会话ID，用户与CAS Server交互时，帮助用户查找相应的TGT。  
+>> ST为CAS Server签发的一张一次性票据，CAS Client使用ST与CAS Server进行交互，获取用户的验证状态。  
 >> 作者：郝小发的生活
 >> 来源：简书
 

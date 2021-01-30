@@ -30,6 +30,7 @@ def daka(ses):
     data = {}
     while not os.path.exists('./data.json'):
         l.warn('请在运行目录下放入data.json后输入回车以继续...')
+        input()
 
     data = json.load(open('./data.json', 'r', encoding='utf-8'))
     data['xwwd'] = tem1
@@ -71,15 +72,17 @@ def daka(ses):
 
 
 if __name__ == '__main__':
-    print('可以使用json转换工具来得到data.json嗷!')
+    print('可以使用json转换工具来得到data.json嗷!\n<江大门户登录配置>')
     appkey = input('输入ocr的key:')
     username = input('输入学号: ')
     password = getpass.getpass("密码: ")
+    if input('请确认信息是否有误?(y/n)') != 'y':
+        exit()
     # password = input()
     lg = Login(appkey)
     sdtime = "8:30"
     while len(sdtime) != 5:
-        sdtime = input('设定时间:例如:12:00\n')
+        sdtime = input('设定时间,例如:12:00,08:00\n')
 
     l.info(f'设定的时间:{sdtime}')
     l.info('等候打卡...')

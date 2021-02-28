@@ -8,6 +8,7 @@ import json
 from mailsender import mail, failedmail
 from loginRe import Login
 import os
+import getdata
 
 
 def showRedirectHistory(reditList):
@@ -18,7 +19,7 @@ def showRedirectHistory(reditList):
         ''
 
 def daka(ses):
-    dakaAPI = "http://yun.ujs.edu.cn/xxhgl/yqsb/grmrsb?v=3097"
+    dakaAPI = "http://yun.ujs.edu.cn/xxhgl/yqsb/grmrsb"
 
     # l.info(f'初始化...\napi={dakaAPI}')
     ses.headers = {
@@ -29,19 +30,7 @@ def daka(ses):
     tem2 = randint(355, 365) / 10
     l.info("随机体温为:{}和{}".format(tem1, tem2))
 
-    data = {}
-    while not os.path.exists('./data.json'):
-        l.warn('请在运行目录下放入data.json后输入回车以继续...')
-        input()
 
-    data = json.load(open('./data.json', 'r', encoding='utf-8'))
-    data['xwwd'] = tem1
-    data['swwd'] = tem2
-
-    # for key, value in data.items():
-    #     print(f"{key}:{value}")
-
-    l.info("表单创建完毕!!" + "\n")
 
     '''
     headers = {
@@ -53,12 +42,36 @@ def daka(ses):
      '''
 
     l.info("提交表单ing...")
-    response = ses.post(url=dakaAPI, data=data)
+    response = ses.post(url=dakaAPI)
     reditList = response.history
     showRedirectHistory(reditList)
+
+
+    data = {}
+    while not os.path.exists('./data.json'):
+        l.warn('没有data.json!!')
+        response=ses.get(url=dakaAPI)
+        text=response.content
+        with open("test.html", 'wb') as resHtml:
+            resHtml.write(text)
+            getdata.getdata()
+
+
+
+    data = json.load(open('./data.json', 'r', encoding='gbk'))
+    data['xwwd'] = tem1
+    data['swwd'] = tem2
+
+    # for key, value in data.items():
+    #     print(f"{key}:{value}")
+
+    l.info("表单创建完毕!!" + "\n")
+
+
     response = ses.get(url=reditList[len(reditList) - 1].headers["location"])
     reditList = response.history
     showRedirectHistory(reditList)
+
 
     response = ses.post(url=dakaAPI, data=data)
     text = response.content

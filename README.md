@@ -4,4 +4,5 @@ C#的GUI版本
 
 ## 食用方法:
 按要求填好内容,并且把data.json丢到Core文件夹内,开始服务即可.  
-关于data.json内容详见main分支的Readme.md
+~~关于data.json内容详见main分支的Readme.md~~
+已经可以自动生成data.json
